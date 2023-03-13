@@ -1,0 +1,61 @@
+# audio
+XF86Audio{RaiseVolume,LowerVolume}
+	pulsemixer --change-volume {+5,-5}
+
+XF86Audio{Mute,MicMute}
+	pulsemixer --toggle-mute --id {sink-0,source-1}
+
+XF86Audio{Prev,Next}
+	playerctl {previous,next}
+
+XF86AudioPlay
+	playerctl play-pause
+
+# other keys
+XF86WebCam
+	mpv /dev/video0
+
+# backlight
+XF86MonBrightness{Up,Down}
+	xbacklight -{inc,dec} 10
+
+# launchers
+super + {Return, w}
+	{st,chromium}
+
+super + d
+	rofi -modi drun,run -show drun
+
+# i3
+super + {Up,Down,Left,Right}
+	i3-msg focus {up,down,left,right}
+
+super + shift + {Up,Down,Left,Right}
+	i3-msg move {up,down,left,right}
+
+super + q
+	i3-msg kill
+
+super + {h,v}
+	i3-msg split {h,v}
+
+super + shift + {c,r,e}
+	i3-msg {reload,restart,exit}
+
+super + alt + {Up,Down}
+	i3-msg resize {grow,shrink} height 10 px
+
+super + alt + {Left,Right}
+	i3-msg resize {grow,shrink} width 10px
+
+super + f
+	i3-msg fullscreen toggle
+
+super + {1-9}
+	i3-msg workspace number {1-9}
+
+alt + {1-9}
+	i3-msg move container to workspace number {1-9}
+
+alt + space
+	i3-msg floating toggle

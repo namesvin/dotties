@@ -1,0 +1,34 @@
+# i3 config file (v4)
+set $mod Mod4
+font pango:monospace 8
+floating_modifier $mod
+tiling_drag modifier titlebar
+for_window [class="^.*"] border pixel 2 
+gaps inner 3 
+gaps outer 3
+set $bgcolor  #81a1c1
+set $ibgcolor #2e3440
+set $textcolor #ffffff
+set $ubgcolor #900000
+set $itextcolor #888888	
+client.focused		$bgcolor	$bgcolor		$textcolor	$bgcolor
+client.unfocused	$ibgcolor	$ibgcolor		$itextcolor	$ibgcolor
+client.focused_inactive	$ibgcolor	$ibgcolor		$textcolor	$ibgcolor
+client.urgent		$ubgcolor	$ubgcolor		$textcolor	$ubgcolor	
+bar {
+        position top
+        status_command i3status-rs
+        #font pango:mono 11
+        font pango:NotoSansMono Nerd Font, Font Awesome 5 Free,Font Awesome 5 Free Regular 14px
+        height 20
+        colors {
+            separator  #1f222d
+            background #2E3440
+            statusline #81a1c1
+            focused_workspace  #1f222d #1f222d    #81a1c1
+            active_workspace   #1f222d #252936    #5e81ac
+            inactive_workspace #1f222d #1f222d    #4c566a
+            urgent_workspace   #1f222d #1f222d    #ee829f
+            binding_mode       #1f222d #81a1c1    #2e3440
+        }
+}

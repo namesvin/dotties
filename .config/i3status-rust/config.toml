@@ -1,0 +1,112 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "nord-dark"
+[theme.overrides]
+separator = "<span rise='-1048' font='10'>\ue0b2</span>"
+
+[icons]
+icons = "material-nf"
+
+#[[block]]
+#block = "music"
+#format = " $icon {$combo.str(max_w:20)|No player }"
+#[block.theme_overrides]
+#idle_bg = "#D8DEE9"
+#idle_fg = "#5C626E"
+
+[[block]]
+block = "custom"
+interval = 4
+command = ''' awk '{print $1*10^-6 "W"}' /sys/class/power_supply/BAT0/power_now '''
+format = " \u23fb  $text "
+
+[block.theme_overrides]
+idle_bg = "#D8DEE9"
+idle_fg = "#5C626E"
+
+
+[[block]]
+block = "cpu"
+interval = 1
+[block.theme_overrides]
+idle_bg = "#5C626E"
+idle_fg = "#D8DEE9"
+
+#[[block]]
+#block = "disk_space"
+#path = "/"
+#info_type = "available"
+#alert_unit = "GB"
+#interval = 20
+#warning = 20.0
+#alert = 10.0
+#format = " $icon  $available.eng(w:2) "
+#[block.theme_overrides]
+#idle_bg = "#5C626E"
+#idle_fg = "#D8DEE9"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_total_used "
+format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+interval = 1
+[block.theme_overrides]
+idle_bg = "#D8DEE9"
+idle_fg = "#5C626E"
+
+[[block]]
+block = "sound"
+[block.theme_overrides]
+idle_bg = "#5C626E"
+idle_fg = "#D8DEE9"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+[block.theme_overrides]
+good_bg = "#D8DEE9"
+good_fg = "#5C626E"
+
+[[block]]
+block = "backlight"
+format = " $icon $brightness "
+[block.theme_overrides]
+idle_bg = "#5C626E"
+idle_fg = "#D8DEE9"
+
+[[block]]
+block = "net"
+format = " $icon  {$signal_strength $ssid$frequency| ethernet} "
+[block.theme_overrides]
+idle_bg = "#D8DEE9"
+idle_fg = "#5C626E"
+
+[[block]]
+block = "temperature"
+format = " $icon  $max "
+interval = 1
+chip = "*-isa-*"
+[block.theme_overrides]
+info_fg = "#D8DEE9"
+info_bg = "#5C626E"
+
+#[[block]]
+#block = "pacman"
+#interval = 600
+#error_interval = 300
+#format = " $icon  $both updates available "
+#format_up_to_date = " $icon  up to date "
+#critical_updates_regex = "(linux|linux-lts|linux-zen)"
+#aur_command = "paru -Qua"
+#[block.theme_overrides]
+#idle_fg = "#5C626E"
+#idle_bg = "#D8DEE9"
+
+[[block]]
+block = "time"
+interval = 1
+format = " $icon  $timestamp.datetime(f:'%R') "
+[block.theme_overrides]
+idle_fg = "#5C626E"
+idle_bg = "#D8DEE9"
